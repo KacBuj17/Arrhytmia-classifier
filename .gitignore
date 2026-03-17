@@ -1,0 +1,6 @@
+.venv
+.idea
+logs
+checkpoints
+data
+__pycache__
