@@ -22,7 +22,7 @@ def create_trainer():
 
     checkpoint_callback = ModelCheckpoint(
         dirpath=f"{best_model_save_dir}",
-        filename="best-lstm-{epoch:02d}-{val_loss:.4f}",
+        filename="best-lstm",
         monitor="val_loss",
         mode="min",
         save_top_k=1,

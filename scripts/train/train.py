@@ -7,9 +7,7 @@ from trainer.trainer import create_trainer
 from tuner.tuner import tune_lr
 from utils.project_paths import from_root
 
-
 ENCODER_PATH = from_root("resources/checkpoints/label_encoder.pkl")
-MODEL_PATH = from_root("resources/checkpoints/final_model.ckpt")
 
 
 def main():
@@ -33,8 +31,6 @@ def main():
     trainer.fit(model, train_loader, val_loader)
 
     trainer.test(model, test_loader)
-
-    trainer.save_checkpoint(MODEL_PATH)
 
 
 if __name__ == "__main__":
