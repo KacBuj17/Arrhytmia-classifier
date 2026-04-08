@@ -25,7 +25,7 @@ def create_trainer():
         filename="best-lstm-{epoch:02d}-{val_loss:.4f}",
         monitor="val_loss",
         mode="min",
-        save_top_k=3,
+        save_top_k=1,
         verbose=True
     )
 

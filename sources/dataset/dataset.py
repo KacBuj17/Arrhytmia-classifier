@@ -110,18 +110,3 @@ def prepare_dataloaders():
     )
 
     return train_loader, val_loader, test_loader, le, class_weights
-
-
-class FocalLoss(torch.nn.Module):
-    def __init__(self, gamma=2.0, weight=None):
-        super().__init__()
-        self.gamma = gamma
-        self.weight = weight
-
-    def forward(self, inputs, targets):
-        ce_loss = torch.nn.functional.cross_entropy(
-            inputs, targets, weight=self.weight, reduction='none'
-        )
-        pt = torch.exp(-ce_loss)
-        focal_loss = ((1 - pt) ** self.gamma * ce_loss).mean()
-        return focal_loss
